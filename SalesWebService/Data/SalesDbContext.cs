@@ -15,5 +15,11 @@ namespace SalesWebService.Data
         }
 
         public DbSet<SalesWebService.Models.Customer> Customer { get; set; }
+
+        public DbSet<SalesWebService.Models.Product> Product { get; set; }
+
+        public DbSet<SalesWebService.Models.Order> Order { get; set; }
+
+        public DbSet<SalesWebService.Models.OrderLine> OrderLine { get; set; }
     }
 }

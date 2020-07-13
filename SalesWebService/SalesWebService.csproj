@@ -9,6 +9,8 @@
     <Compile Remove="Migrations\20200710193940_initMigration.Designer.cs" />
     <Compile Remove="Migrations\20200710194327_initMigration.cs" />
     <Compile Remove="Migrations\20200710194327_initMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200711190728_AddedOrderAndOLClassAndCtrl.cs" />
+    <Compile Remove="Migrations\20200711190728_AddedOrderAndOLClassAndCtrl.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
