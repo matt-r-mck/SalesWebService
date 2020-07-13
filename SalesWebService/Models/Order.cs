@@ -18,7 +18,7 @@ namespace SalesWebService.Models {
         [Required]
         public string Description { get; set; }
         [Column(TypeName = "decimal (12,2)")]
-        public decimal total { get; set; }
+        public decimal Total { get; set; }
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
 

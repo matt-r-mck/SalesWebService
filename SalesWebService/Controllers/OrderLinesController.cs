@@ -12,25 +12,30 @@ namespace SalesWebService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderLinesController : ControllerBase {
+    public class OrderLinesController : ControllerBase
+    {
         private readonly SalesDbContext _context;
 
-        public OrderLinesController(SalesDbContext context) {
+        public OrderLinesController(SalesDbContext context)
+        {
             _context = context;
         }
 
         // GET: api/OrderLines
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<OrderLine>>> GetOrderLine() {
+        public async Task<ActionResult<IEnumerable<OrderLine>>> GetOrderLine()
+        {
             return await _context.OrderLine.ToListAsync();
         }
 
         // GET: api/OrderLines/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<OrderLine>> GetOrderLine(int id) {
+        public async Task<ActionResult<OrderLine>> GetOrderLine(int id)
+        {
             var orderLine = await _context.OrderLine.FindAsync(id);
 
-            if (orderLine == null) {
+            if (orderLine == null)
+            {
                 return NotFound();
             }
 
@@ -41,19 +46,27 @@ namespace SalesWebService.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutOrderLine(int id, OrderLine orderLine) {
-            if (id != orderLine.Id) {
+        public async Task<IActionResult> PutOrderLine(int id, OrderLine orderLine)
+        {
+            if (id != orderLine.Id)
+            {
                 return BadRequest();
             }
 
             _context.Entry(orderLine).State = EntityState.Modified;
 
-            try {
+            try
+            {
                 await _context.SaveChangesAsync();
-            } catch (DbUpdateConcurrencyException) {
-                if (!OrderLineExists(id)) {
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!OrderLineExists(id))
+                {
                     return NotFound();
-                } else {
+                }
+                else
+                {
                     throw;
                 }
             }
@@ -61,13 +74,12 @@ namespace SalesWebService.Controllers
             return NoContent();
         }
 
-
-
         // POST: api/OrderLines
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<OrderLine>> PostOrderLine(OrderLine orderLine) {
+        public async Task<ActionResult<OrderLine>> PostOrderLine(OrderLine orderLine)
+        {
             _context.OrderLine.Add(orderLine);
             await _context.SaveChangesAsync();
 
@@ -76,9 +88,11 @@ namespace SalesWebService.Controllers
 
         // DELETE: api/OrderLines/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<OrderLine>> DeleteOrderLine(int id) {
+        public async Task<ActionResult<OrderLine>> DeleteOrderLine(int id)
+        {
             var orderLine = await _context.OrderLine.FindAsync(id);
-            if (orderLine == null) {
+            if (orderLine == null)
+            {
                 return NotFound();
             }
 
@@ -87,11 +101,6 @@ namespace SalesWebService.Controllers
 
             return orderLine;
         }
-
-    //    [HttpPut({id})]
-    //    public async Task<IActionResult> CalculateOrderTotal(int orderId) {
-    //        var order = await _context.Orders.geetOrder(orderId):
-    //}
 
         private bool OrderLineExists(int id)
         {

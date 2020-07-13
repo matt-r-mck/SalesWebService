@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace SalesWebService.Models {
@@ -21,5 +22,8 @@ namespace SalesWebService.Models {
         public bool IsNationalAccount { get; set; } = false;
 
         public Customer() {}
+
+        [JsonIgnore]
+        public virtual IEnumerable<Order> Orders { get; set; }
     }
 }
