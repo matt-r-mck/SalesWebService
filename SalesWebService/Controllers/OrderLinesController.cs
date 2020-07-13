@@ -28,6 +28,8 @@ namespace SalesWebService.Controllers
             return await _context.OrderLine.ToListAsync();
         }
 
+        //needs calc order total method
+
         // GET: api/OrderLines/5
         [HttpGet("{id}")]
         public async Task<ActionResult<OrderLine>> GetOrderLine(int id)
